@@ -1,0 +1,7 @@
+name = "Site Logistique"
+description = Site logistique statique.
+version = "7.x.1.0"
+core = 7.x
+dependencies[] = jquery_update
+stylesheets[all][] = style_module.css
+stylesheets[all][] = style_pages.css

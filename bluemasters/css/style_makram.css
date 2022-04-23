@@ -1,0 +1,42 @@
+
+.footer-right-bold-title {
+	font-weight: bold;
+}
+
+
+/*#block-site-logistique-footer-right > .content > div div {
+    float: left;
+}*/
+
+#footer-tel .footer-right-bold-title {
+	width: 77px
+}
+
+#footer-fax {
+	margin-left: 10px;
+}
+
+#footer-fax .footer-right-bold-title {
+	width: 33px;
+}
+
+
+#footer-mobile .footer-right-bold-title {
+	width: 51px;
+}
+
+#footer-email .footer-right-bold-title {
+	width: 45px;
+}
+
+
+#footer-adresse .footer-right-bold-title {
+	width: 62px;
+}
+#header-top {
+    height: 20px;
+}
+
+#footer{
+min-height : 50px;
+}

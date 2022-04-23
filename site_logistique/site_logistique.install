@@ -1,0 +1,86 @@
+<?php
+
+/**
+* Implements hook_schema().
+*/
+function site_logistique_schema() {
+	$schema['site_logistique_devis'] = array(
+		'fields' => array(
+			'time_deivs_id' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+			),
+			'type_marchandise' => array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'dimensions_charge' => array(
+				'type' => 'varchar',
+				'length' => 64,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'date_depart' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+			),
+			'date_arrivee' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+			),
+			'lieu_depart' => array(
+				'type' => 'varchar',
+				'length' => 256,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'lieu_arrive' => array(
+				'type' => 'varchar',
+				'length' => 256,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'vehicule_souhaite' => array(
+				'type' => 'varchar',
+				'length' => 128,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'remarque' => array(
+				'type' => 'text',
+				'size' => 'medium',
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'nom_prenom' => array(
+				'type' => 'varchar',
+				'length' => 128,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'ville_region_pays' => array(
+				'type' => 'varchar',
+				'length' => 200,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'telephone' => array(
+				'type' => 'varchar',
+				'length' => 30,
+				'not null' => FALSE,
+				'default' => '',
+			),
+			'email' => array(
+				'type' => 'varchar',
+				'length' => 128,
+				'not null' => FALSE,
+				'default' => '',
+			),
+		),
+		'primary key' => array('time_deivs_id'),
+	);
+
+	return $schema;
+}

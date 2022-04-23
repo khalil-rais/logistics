@@ -1,0 +1,584 @@
+<?php
+
+/**
+* Implements hook_menu
+*/
+function site_logistique_menu() {
+	$items['societe'] = array(
+		'title' => t('Societe'),
+		'page callback' => 'site_logistique_societe',
+		'page arguments' => array(),
+		'access arguments' => array('access content'),
+		'type' => MENU_NORMAL_ITEM,
+		'menu_name' => 'main-menu',
+	);
+	$items['services'] = array(
+		'title' => t('Services'),
+		'page callback' => 'site_logistique_services',
+		'page arguments' => array(),
+		'access arguments' => array('access content'),
+		'type' => MENU_NORMAL_ITEM,
+		'menu_name' => 'main-menu',
+	);
+	
+	$items['devis'] = array(
+		'title' => t('Devis'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('site_logistique_devis'),
+		'access arguments' => array('access content'),
+		'type' => MENU_NORMAL_ITEM,
+		'menu_name' => 'main-menu',
+	);
+	
+	return $items;
+}
+
+function site_logistique_societe() {
+	echo '
+		<!Doctype html>
+		<html>
+			<head>
+				<link href="' . drupal_get_path('module', 'site_logistique') . '/style.css" type="text/css" rel="stylesheet">
+			</head>
+			<body>
+				<div id="container" align="center">
+					<div id="content">
+						<!-- Start Header -->
+						<div id="header">
+							<img src="' . drupal_get_path('module', 'site_logistique') . '/images/header.jpg" alt="header" border="0" usemap="#Map" />
+							<map name="Map" id="Map">
+								<area shape="rect" coords="63,9,370,81" href="index.php" title="SWISS LOGISTIC index" alt="SWISS LOGISTIC index" />
+								<area shape="circle" coords="637,48,13" href="#" title="Tel : 0041 79 401 69 19" alt="Tel : 0041 79 401 69 19" />
+								<area shape="circle" coords="670,43,13" href="#" title="Fax : 0041 21 646 77 85" alt="Fax : 0041 21 646 77 85" />
+								<area shape="circle" coords="704,40,13" href="#" title="Email : contact@swiss-logistic.com" alt="Email : contact@swiss-logistic.com" />
+								 
+								<area shape="rect" coords="87,125,188,165" href="index.php" title="SWISS LOGISTIC" alt="SWISS LOGISTIC" />
+								<area shape="rect" coords="224,123,335,167" href="societe.php" title="societe SWISS LOGISTIC" alt="societe SWISS LOGISTIC" />
+								<area shape="rect" coords="370,124,484,165" href="services.php" title="services SWISS LOGISTIC" alt="services SWISS LOGISTIC" />
+								<area shape="rect" coords="514,125,697,164" href="devis.php" title="devis SWISS LOGISTIC" alt="devis SWISS LOGISTIC" />
+						  </map>
+						</div>	<!-- End Header -->
+					
+						<!-- Start Page Content -->
+						<div id="main">
+					
+							<div style="width:50%; margin-bottom:20px;"><img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-12.jpg" alt="transport urbain suisse europe" border="0" /></div>
+							<div style="width:50%; margin-bottom:20px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-12.jpg" alt="transporteur swiss logistic" border="0" style="padding-left:9px;" />
+								<p style="padding-left:10px;">Swiss Logistic vous permet d\'exporter avec serenite, et de beneficier d\'une securite totale sur le Fret, vous offre la possibilite de trouver un partenariat complet, pour vous consacrer davantage a developper vos marches. activite a l\'Export en toute quietude. <a href="devis.php">Demande de devis</a></p>
+							</div>
+						
+							<div style="clear:both"></div>
+						
+							<div style="width:65%; background-color:#F7F7F5; margin-bottom:20px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-22.jpg" alt="transporteur swiss logistic" border="0" />
+								<p>Swiss Logistic est une entreprise de transport urbain en Suisse et dans toutes les regions de l\'Europe, disposant d\'un des reseaux de transport le plus rapide avec une disponibilite immediate a des frais optimises.</p>
+
+								<p>En matiere de moyens de  transport, la Swiss Logistic possede des vehicules adaptes aux differentes charges et volumes (Camion, Camionnette, Fourgon, Utilitaire...) ; ainsi des employes specialises en demenagement, packaging et conditionnement de tout type de fret et marchandise (documents importants, produits fragiles, charges lourdes...).</p>
+							</div>
+							<div style="width:35%; margin-bottom:20px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-22.jpg" alt="transport urbain suisse europe" border="0" />
+							</div>
+						
+							<div style="clear:both"></div>
+						
+							<div style="width:50%">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-3.jpg" alt="transporteur swiss logistic" border="0" />
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-3.jpg" alt="transport urbain suisse europe" border="0" style="float:left; margin-right:10px" />
+								<p style="float:left; width:180px">Transport partiel ou complet de pieces civil avec des plateaux de porteur tautliner. <span style="color:#DD0101">| <a href="services.php">Suite</a></span></p>
+							</div>
+							<div style="width:50%">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-4.jpg" alt="transporteur swiss logistic" border="0" />
+								<p>Transport partiel ou complet de pieces industrielles, d\'equipements d\'ouvrage d\'art ou de construction civil avec des remorques specifiques. <span style="color:#DD0101">| <a href="services.php">Suite</a></span></p>
+							</div>
+					
+						</div>
+						<!-- End Page Content -->
+						
+						<!-- Start Footer -->
+						<div id="footer">
+							<img src="' . drupal_get_path('module', 'site_logistique') . '/images/footer.jpg" alt="footer" border="0" />
+						</div>	<!-- End Footer -->
+					</div>	
+				</div>
+				<!-- End Page Container -->
+			</body>
+		</html>
+	';
+}
+
+function site_logistique_services() {
+	echo '
+		<!DOCTYPE html>
+		<html>
+			<head>
+				<link rel="stylesheet" type="text/css" href="' . drupal_get_path('module', 'site_logistique') . '/style.css" />
+			</head>
+			<body>	
+
+			<!-- Start Page Container -->
+				<div id="container" align="center">
+					<div id="content">	
+						<!-- Start Header -->
+						<div id="header">
+							<img src="' . drupal_get_path('module', 'site_logistique') . '/images/header.jpg" alt="header" border="0" usemap="#Map" />
+							<map name="Map" id="Map">
+								<area shape="rect" coords="63,9,370,81" href="index.php" title="SWISS LOGISTIC index" alt="SWISS LOGISTIC index" />
+								<area shape="circle" coords="637,48,13" href="#" title="Tel : 0041 79 401 69 19" alt="Tel : 0041 79 401 69 19" />
+								<area shape="circle" coords="670,43,13" href="#" title="Fax : 0041 21 646 77 85" alt="Fax : 0041 21 646 77 85" />
+								<area shape="circle" coords="704,40,13" href="#" title="Email : contact@swiss-logistic.com" alt="Email : contact@swiss-logistic.com" />
+								 
+								<area shape="rect" coords="87,125,188,165" href="index.php" title="SWISS LOGISTIC" alt="SWISS LOGISTIC" />
+								<area shape="rect" coords="224,123,335,167" href="societe.php" title="societe SWISS LOGISTIC" alt="societe SWISS LOGISTIC" />
+								<area shape="rect" coords="370,124,484,165" href="services.php" title="services SWISS LOGISTIC" alt="services SWISS LOGISTIC" />
+								<area shape="rect" coords="514,125,697,164" href="devis.php" title="devis SWISS LOGISTIC" alt="devis SWISS LOGISTIC" />
+						  </map>
+						</div>	<!-- End Header -->
+						
+						<!-- Start Page Content -->
+						<div id="main">
+						
+							<div style="width:25%; margin-bottom:10px;"><img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-13.jpg" alt="transport urbain suisse europe" border="0" /></div>
+							<div id="transport" style="width:75%; margin-bottom:10px;background: url(' . drupal_get_path('module', 'site_logistique') . '/images/services-bg.jpg) no-repeat top right;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-13.jpg" alt="transporteur swiss logistic" border="0" style="padding-left:9px;" />
+								<p style="padding-left:10px;">Transport des marchandises et des frets dans les regions de Suisse et de l\'Europe; nous adaptons nos solutions a vos demandes en vous garantissant la rapidite et l\'efficacite a des frais optimises. <a href="devis.php">Demande de devis</a></p>
+							</div>
+							
+							<div style="clear:both"></div>
+							
+							<div style="width:50%; margin-bottom:30px;">
+								<ul id="list">
+									<li><a href="services.php">Livraison Express de Colis et Documents</a></li>
+									<li><a href="services.php">Transport Fragile ou de Forte valeur</a></li>
+									<li><a href="services.php">Transport Frigorifique ou Matiere dangereuse</a></li>
+									<li><a href="services.php">Transports Exceptionnels</a></li>
+								</ul>
+							</div>
+							<div style="width:50%; margin-bottom:30px;">
+								<ul id="list">
+									<li><a href="services.php">Entreposage, Conditionnement et Distribution </a></li>
+									<li><a href="services.php">Transport de Fret : Routier et Ferroviaire</a></li>
+									<li><a href="services.php">Transport de Fret : Aerien et Maritime</a></li>
+									<li><a href="services.php">Assurance credit transport</a></li>
+								</ul>
+							</div>
+							
+							<div style="clear:both"></div>
+							
+							<div id="logistique" style="width:65%; background-color:#F7F7F5; margin-bottom:20px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-23.jpg" alt="transporteur swiss logistic" border="0" />
+								<p>Nous vous propose une solution logistique globale de la reception de commande, a la mise en stock et a l\'expedition finale de votre marchandise. Nous effectuons le dechargement et le chargement de vos colis, et assurons la mise sur palette de vos marchandises. <a href="devis.php">Demande de devis</a></p>
+							</div>
+							<div style="width:35%; margin-bottom:20px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-23.jpg" alt="transport urbain suisse europe" border="0" /><div style="clear:both"></div>
+							</div>
+							
+							<div style="clear:both"></div>
+							
+							<div style="width:25%; margin-bottom:0px;"><img src="' . drupal_get_path('module', 'site_logistique') . '/images/transport-33.jpg" alt="transport urbain suisse europe" border="0" /></div>
+							<div id="import-export" style="width:75%; margin-bottom:0px;">
+								<img src="' . drupal_get_path('module', 'site_logistique') . '/images/titre-33.jpg" alt="transporteur swiss logistic" border="0" style="padding-left:9px;" />
+								<p style="padding-left:10px;">Nous vous proposons de vous assister dans la mise en place d\'une solution d\'assurance credit transport marchandise dans votre secteur d\'activite, adapte a vos moyens. Swiss Logistic travaille en collaboration avec les principaux organismes d\'assurance credit sur le territoire national et international. <a href="devis.php">Demande de devis</a></p> 
+							</div>
+						</div>
+						<!-- End Page Content -->
+						
+						<!-- Start Footer -->
+						<div id="footer">
+							<img src="' . drupal_get_path('module', 'site_logistique') . '/images/footer.jpg" alt="footer" border="0" />
+						</div>	<!-- End Footer -->
+						
+					</div>
+				</div>
+				<!-- End Page Container -->
+				
+			</body>			
+		</html>
+	';
+}
+
+function site_logistique_devis() {
+	drupal_add_library('system', 'ui.datepicker');
+	drupal_add_js(libraries_get_path('maskedinput') . '/jquery.maskedinput.min.js');
+	drupal_add_js('
+		jQuery(document).ready(function () {
+			jQuery("#edit-date-depart").datepicker();
+			jQuery("#edit-date-depart").mask("99/99/9999");
+			jQuery("#edit-date-arrivee").datepicker();
+			jQuery("#edit-date-arrivee").mask("99/99/9999");
+			// jQuery("#edit-telephone").mask("+(999) 99 999 999");
+		});
+	','inline');
+	
+	$form = array();
+	
+	$form['devis_transport'] = array(
+		'#markup' => '<p>' . t('Veuillez indiquer les informations sur votre envoi et nous vous répondrons par un devis gratuit dans les plus brefs délais.').'</p><h2>' . t('Devis Transport') . '</h2>'
+	);
+	
+	$form['type_marchandise'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Type marchandise'),
+		'#maxlength' => 60,
+		'#size' => 40,
+
+	);
+	
+	$form['dimensions_charge'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Dimensions et charge'),
+		'#maxlength' => 60,
+		'#size' => 40,
+	);
+	
+	$form['date_depart'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Date départ'),
+		'#required' => true,
+		'#maxlength' => 10,
+		'#size' => 12,
+		'#attributes' => array('autocomplete' => 'off'),
+		'#prefix' => '<div id="date-lieu-wrapper"><div class="date-wrapper">',
+		'#suffix' => '</div>'
+
+	);
+	
+	$form['date_arrivee'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Date arrivée'),
+		'#required' => true,
+		'#maxlength' => 10,
+		'#size' => 12,
+		'#attributes' => array('autocomplete' => 'off'),
+		'#prefix' => '<div class="date-wrapper">',
+		'#suffix' => '</div>'
+	);
+	
+	$form['lieu_depart'] = array(
+		"#type" => 'textfield',
+		'#title' => t('Lieu départ'),
+		'#prefix' => '<div class="lieu">',
+		'#suffix' => '</div>'
+	);
+	
+	$form['lieu_arrive'] = array(
+		"#type" => 'textfield',
+		'#title' => t('Lieu arrivé'),
+		'#prefix' => '<div class="lieu">',
+		'#suffix' => '</div></div>'
+	);
+	
+	$form['vehicule_souhaite'] = array(
+		"#type" => 'textfield',
+		'#title' => t('Véhicule souhaité')
+	);
+	$form['remarque'] = array(
+		'#type' => 'textarea',
+		'#title' => t('Remarque'),
+		'#cols' => 60
+	);
+	
+	$form['vos_coordonnees'] = array(
+		'#markup' => '<h2>' . t('Vos coordonnées') . '</h2>'
+	);
+	
+	$form['nom_prenom'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Nom et Prénom'),
+		'#maxlength' => 60,
+		'#size' => 40,
+	);
+	
+	$form['ville_region_pays'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Ville, région et Pays'),
+		'#maxlength' => 60,
+		'#size' => 40,
+	);
+	
+	$form['telephone'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Téléphone'),
+		'#maxlength' => 60,
+		'#size' => 40,
+	);
+	
+	$form['email'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Email'),
+		'#maxlength' => 60,
+		'#size' => 40,
+	);
+	
+	$form['submit'] = array(
+		'#type' => 'image_button',
+		'#value' => t('Envoyer'),
+		'#src' => drupal_get_path('module', 'site_logistique') . "/images/image_vide.png",
+		'#prefix' => '<div id="send_devis">',
+		'#suffix' => '</div>'
+	);
+	
+	return $form;
+}
+
+function site_logistique_devis_validate($form, &$form_state) {
+	// print_r($form_state);exit;
+	$erreur = 0;
+	$date_depart_matches = "";
+	$date_arrivee_matches = "";
+	
+	$date_depart = $form_state['input']['date_depart'];
+	$date_depart_match = preg_match("@^([0-9]{2})/([0-9]{2})/([0-9]{4})$@", $date_depart, $date_depart_matches);
+	if($date_depart_match) {
+		if(!checkdate($date_depart_matches[1], $date_depart_matches[2], $date_depart_matches[3]))
+			form_set_error('date_depart', t("La date de départ n'est pas une date valide"));
+	}
+	else {
+		$erreur = 1;
+		if($date_depart_match === 0)
+			form_set_error('date_depart', t('Format de la date de départ est non valide'));
+		else
+			form_set_error('date_depart', t('Erreur dans la vérification de la date de départ'));
+	}
+	
+	$date_arrivee = $form_state['input']['date_arrivee'];
+	$date_arrivee_match = preg_match("@^([0-9]{2})/([0-9]{2})/([0-9]{4})$@", $date_arrivee, $date_arrivee_matches);
+	if($date_arrivee_match) {
+		if(!checkdate($date_arrivee_matches[1], $date_arrivee_matches[2], $date_arrivee_matches[3]))
+			form_set_error('date_arrivee', t("La date d'arrivée n'est pas une date valide"));
+	}
+	else {
+		$erreur = 1;
+		if($date_arrivee_match === 0)
+			form_set_error('date_arrivee', t("Format de la date d'arrivée est non valide"));
+		else 
+			form_set_error('date_arrivee', t("Erreur dans la vérification de la date d'arrivée"));
+	}
+	
+	if(!$erreur) {
+		$aujourdhui_long = date('j') + 100*date('n') + 10000*date('Y');
+		$date_depart_long = $date_depart_matches[2] + 100*$date_depart_matches[1] + 10000*$date_depart_matches[3];
+		$date_arrivee_long = $date_arrivee_matches[2] + 100*$date_arrivee_matches[1] + 10000*$date_arrivee_matches[3];
+		
+		if($aujourdhui_long > $date_depart_long)
+			form_set_error('date_depart', t('La date de départ ne peut pas être une date antérieure'));
+		if($date_depart_long > $date_arrivee_long) {
+			form_set_error('date_depart');
+			form_set_error('date_arrivee');
+			drupal_set_message(t("La de départ doit être plus petite que la date d'arrivé"), 'error');
+		}
+	}
+	
+	if(!filter_var($form_state['input']['email'], FILTER_VALIDATE_EMAIL))
+		form_set_error('email', t("Adresse email non valide"));
+}
+
+function site_logistique_devis_submit($form, &$form_state) {
+	$values = $form_state['input'];
+	
+	$time_devis_id = time();
+	$date_departs = preg_split("@/@", $values['date_depart']);
+	$date_depart_timestamp = mktime(0, 0, 0, $date_departs[0], $date_departs[1], $date_departs[2]);
+	$date_arrivees = preg_split("@/@", $values['date_arrivee']);
+	$date_arrivee_timestamp = mktime(0, 0, 0, $date_arrivees[0], $date_arrivees[1], $date_arrivees[2]);
+	
+	if(db_query("INSERT INTO {site_logistique_devis} (time_devis_id, type_marchandise, dimensions_charge, date_depart, date_arrivee, lieu_depart, lieu_arrive, vehicule_souhaite, remarque, nom_prenom, ville_region_pays, telephone, email) values (:time_devis_id, :type_marchandise, :dimensions_charge, :date_depart, :date_arrivee, :lieu_depart, :lieu_arrive, :vehicule_souhaite, :remarque, :nom_prenom, :ville_region_pays, :telephone, :email)", array(':time_devis_id' => $time_devis_id, ':type_marchandise' => $values['type_marchandise'], ':dimensions_charge' => $values['dimensions_charge'], ':date_depart' => $date_depart_timestamp, ':date_arrivee' => $date_arrivee_timestamp, ':lieu_depart' => $values['lieu_depart'], ':lieu_arrive' => $values['lieu_arrive'], ':vehicule_souhaite' => $values['vehicule_souhaite'], ':remarque' => $values['remarque'], ':nom_prenom' => $values['nom_prenom'], ':ville_region_pays' => $values['ville_region_pays'], ':telephone' => $values['telephone'], ':email' =>$values['email']))) {
+	$mail = 'contact@euro-logistique.be'; // Déclaration de l'adresse de destination.
+	$passage_ligne = "\n";
+	
+	//=====Déclaration des messages au format texte et au format HTML.
+	$message_html = getHTMLBody($form_state['input']);
+	//==========
+	 
+	//=====Création de la boundary
+	$boundary = "-----=".md5(rand());
+	//==========
+	 
+	//=====Définition du sujet.
+	$sujet = "Demande de Devis";
+	//=========
+	 
+	//=====Création du header de l'e-mail.
+	$header = "From: \"Info\"<contact@euro-logistique.be>".$passage_ligne;
+	$header.= "Reply-to: \"Info\" <contact@euro-logistique.be>".$passage_ligne;
+	$header.= "MIME-Version: 1.0".$passage_ligne;
+	$header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+	//==========
+	 
+	//=====Création du message.
+	$message = $passage_ligne."--".$boundary.$passage_ligne;
+
+	
+	//=====Ajout du message au format HTML
+	$message.= "Content-Type: text/html; charset=\"utf-8\"".$passage_ligne;
+	$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+	$message.= $passage_ligne.$message_html.$passage_ligne;
+	//==========
+	$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+	$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+	//==========
+	 
+	//=====Envoi de l'e-mail.
+	mail($mail,$sujet,$message,$header);
+	//==========
+	
+	} else {
+		drupal_set_message(t("Impossible d'enregistrer votre devis. Veuillez réessayer."), 'error');
+	}
+	
+		//print_r($form_state);exit;
+}
+
+function getHTMLBody($values) {
+	return '
+		<p><span width="100px"><b>' . t('Type marchandise') . ': </b></span><span>' . $values['type_marchandise'] . '</span></p>
+		<p><span width="100px"><b>' . t('Dimensions et charge') . ': </b></span><span>' . $values['dimensions_charge'] . '</span></p>
+		<p><span width="100px"><b>' . t('Date départ') . ': </b></span><span>' . $values['date_depart'] . '</span></p>
+		<p><span width="100px"><b>' . t('Date arrivée ') . ': </b></span><span>' . $values['date_arrivee'] . '</span></p>
+		<p><span width="100px"><b>' . t('Lieu départ') . ': </b></span><span>' . $values['lieu_depart'] . '</span></p>
+		<p><span width="100px"><b>' . t('Lieu arrivé') . ': </b></span><span>' . $values['lieu_arrive'] . '</span></p>
+		<p><span width="100px"><b>' . t('Véhicule souhaité') . ': </b></span><span>' . $values['vehicule_souhaite'] . '</span></p>
+		<p><span width="100px"><b>' . t('Remarque') . ': </b></span><span>' . $values['remarque'] . '</span></p>
+		<p><span width="100px"><b>' . t('Nom et Prénom') . ': </b></span><span>' . $values['nom_prenom'] . '</span></p>
+		<p><span width="100px"><b>' . t('Ville, région et Pays') . ': </b></span><span>' . $values['ville_region_pays'] . '</span></p>
+		<p><span width="100px"><b>' . t('Téléphone') . ': </b></span><span>' . $values['telephone'] . '</span></p>
+		<p><span width="100px"><b>' . t('Email') . ': </b></span><span>' . $values['email'] . '</span></p>
+	';
+}
+
+/**
+* Implements hook_block
+*/
+function site_logistique_block_info() {
+	$blocks = array();
+	$blocks['home1'] = array(
+		'info' => t('Service Transport'),
+		'status' => 1,
+		'region' => 'home_area_1'
+	);
+	$blocks['home2'] = array(
+		'info' => t('Import/Export'),
+		'status' => 1,
+		'region' => 'home_area_2'
+	);
+	$blocks['home3_1'] = array(
+		'info' => t('Service Logistique'),
+		'status' => 1,
+		'region' => 'home_area_3'
+	);
+	$blocks['home3_2'] = array(
+		'info' => t('Contact'),
+		'status' => 1,
+		'region' => 'home_area_3'
+	);
+	$blocks['footer_left'] = array(
+		'info' => t('Image Map logos'),
+		'status' => 1,
+		'region' => 'footer'
+	);
+	$blocks['footer_right'] = array(
+		'info' => t('Logo de la societe'),
+		'status' => 1,
+		'region' => 'footer_bottom'
+	);
+	
+	return $blocks;
+}
+
+/**
+* Implements hook_block_view().
+*/
+function site_logistique_block_view($delta = '') {
+	$block = array();
+
+	switch ($delta) {
+		case 'home1':
+			$block['subject'] = t('Notre Solution');
+			//$block['content'] = l(t('Notre Solution'), 'services', array('fragment' => 'transport'));
+			$block['content'] = '
+			<div class="triple-image">
+				<div class="triple-image-img" class="field-content">
+					<img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/career-transportation-management_box.jpg"/>
+				</div>  
+			</div>
+			<div class="triple-txt">        
+				<div class="field-content">
+					<p>Solution logistique qui couvre toutes les étapes de l’acheminement de vos marchandise,&nbsp;<strong><a class="box_link" href="solution">En savoir plus...</a></strong></p>
+				</div>
+			</div>';
+			break;
+
+		case 'home2':
+			$block['subject'] = t('Notre Engagement');
+			$block['content'] = '
+			<div class="triple-image">
+				<div class="triple-image-img" class="field-content">
+					<img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/notre_engagement.jpg"/>
+				</div>  
+			</div>
+			<div class="triple-txt">        
+				<div class="field-content">
+					<p>Notre engagement est le garant de la satisfaction de notre clientèle et la pérennité de notre activité,&nbsp;<strong><a class="box_link" href="engagement">En savoir plus...</a></strong></p>
+				</div>
+			</div>';
+			break;
+
+		case 'home3_1':
+			$block['subject'] = t('Notre Offre de Services');
+			$block['content'] = '
+			<div class="triple-image">
+				<div class="triple-image-img" class="field-content">
+					<img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/Pins-Belgique-Europe_box.jpg"/>
+				</div>  
+			</div>
+			<div class="triple-txt">        
+				<div class="field-content">
+					<p>Prise en charge de vos besoins avec une offre qui vous garantit la maîtrise de vos coûts,&nbsp;<strong><a class="box_link" href="Services">En savoir plus...</a></strong></p>
+				</div>
+			</div>';
+			break;
+		case 'home3_2':
+			$block['subject'] = t('Contact');
+			$block['content'] = l(t('Import/Export'), 'services', array('fragment' => 'import-export'));
+			break;
+		case 'footer_left':
+			$block['subject'] = '';
+			$block['content'] = '
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.4353814376777!2d3.201435350251329!3d50.730413279414414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c32f59b6814a43%3A0x5803ba3e9a2256fc!2sRue+du+Petit+Courtrai+41%2C+7700+Mouscron%2C+Belgique!5e0!3m2!1sfr!2stn!4v1498138044656" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+			';
+			break;
+		case 'footer_right':
+			$block['subject'] = '';
+			$block['content'] = '
+				<div id="contact_info">
+					<div id="contact_logo">
+						<img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/logo_societe_220x39.png"/>
+					</div>
+					<div id="cotact_address">
+						<div id="footer-tel" >
+							<span class="add_header">' . t('Fixe') . ':  </span><span>+32 492 200 653</span>
+						</div>
+						<div id="footer-mobile" >
+							<span class="add_header">' . t('Mobile') . ': </span><span>+32 56 91 21 86</span>
+						</div>
+						<div id="footer-email" >
+							<span class="add_header">' . t('Email') . ': </span><img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/infom.png"/>
+						</div>
+						<div id="footer-adresse" >
+							<span class="add_header">' . t('Adresse') . ': </span><span>41 rue du Petit Courtrai, 7700 Mouscron, Belgique.</span>
+						</div>
+					</div>
+				</div>
+				<div id="footerSocial">
+					<ul>
+						<li>
+							<a title="Notre Page sur Facebook!" href="https://www.facebook.com/pg/Euro-Logistique-663871947137121" class="facebook"><img src="' . base_path() . drupal_get_path('module', 'site_logistique') . '/images/fb-art.png"/></a>
+						</li>
+					</ul>
+				</div>				
+			';
+			break;
+	}
+
+	return $block;
+}

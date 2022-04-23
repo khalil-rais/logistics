@@ -1,0 +1,25 @@
+* { margin:0; padding:0; }
+body { background:#2D3137; color:#666; font-family:Arial, Helvetica, sans-serif;  }
+
+p { font-size:12px; margin:0 0 20px 0; padding:0; text-align:left; line-height:2.0; }
+a { color:#DD0101; text-decoration:none; }
+a:hover { text-decoration:underline; }
+h2 { font-size:24px; font-weight:normal; color:#e00000; margin:0 0 10px 0; padding:0; text-align:left; }
+table { font-size:12px; margin:0 0 20px 0; padding:0; text-align:left; }
+
+#container { width:100%; height:auto; }
+#content { width:775px; height:auto; background:#fff; }
+#header { width:775px; height:auto; }
+#main { width:660px; height:auto; }
+#main div { float:left; text-align:left; }
+#maindevis { width:715px; height:auto; margin:0 0 0 60px; }
+#footer { width:775px; height:auto; }
+
+#list li { float:left; width:91%; padding:4px 0 6px 20px; margin:0 10px 0 0; background: url("images/arrow-red.png") no-repeat 0% 50%; list-style:none; border-bottom:1px dotted #CCC; }
+#list a { color:#666; padding:2px 5px 2px 2px; font-size:14px;  text-decoration:none;  }
+#list a:hover { color:#e00000; }
+
+
+#site-logistique-devis .form-item > div, #site-logistique-devis .form-item > label {
+    display: inline-block;
+}
